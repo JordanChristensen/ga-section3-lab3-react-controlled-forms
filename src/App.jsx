@@ -2,10 +2,9 @@ import Bookshelf from "./components/Bookshelf/Bookshelf.jsx";
 
 const App = () => {
   return (
-    <>
-      <h1>Hello world!</h1>
+    <main>
       <Bookshelf />
-    </>
+    </main>
   );
 };
 
