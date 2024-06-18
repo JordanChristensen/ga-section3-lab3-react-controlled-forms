@@ -32,9 +32,11 @@ body {
   min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+main {
+  h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+  }
 }
 
 button {
@@ -48,27 +50,9 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-}
-
-input {
-  padding: 5px;
-}
 
 .bookshelfDiv {
   padding: 10px;
-  width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -83,6 +67,29 @@ input {
   align-items: center;
   justify-content: center;
   padding: 20px;
+  h2 {
+    padding: none;
+    margin: none;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    section {
+      input {
+        padding: 5px;
+      }
+    }
+    button,
+    button:hover {
+      margin-top: 10px;
+      border-color: #646cff;
+      background-color: #646cff;
+    }
+    button:focus,
+    button:focus-visible {
+      outline: 4px auto -webkit-focus-ring-color;
+    }
+  }
 }
 
 .bookCardsDiv {
