@@ -11,7 +11,10 @@ const Bookshelf = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log("Default form submission has been prevented.");
+    if (newBook.title && newBook.author) {
+      setBooks([...books, newBook]);
+      setNewBook({ title: "", author: "" });
+    }
   };
 
   return (
@@ -40,13 +43,20 @@ const Bookshelf = () => {
               required
               onChange={handleInputChange}
             />
-            <button type="submit">Add book</button>
+            <button onClick={(newBook) => handleSubmit(newBook)}>
+              Add book
+            </button>
           </form>
         </section>
         <section className="bookCardsDiv" onSubmit={handleSubmit}>
-          {/* Book cards will display here */}
-          
-          {/* <Book title={books.title} /> */}
+          {books.map((book, index) => {
+            return (
+              <section key={index} className="card">
+                <h2>{book.title}</h2>
+                <em>by {book.author}</em>
+              </section>
+            );
+          })}
         </section>
       </section>
     </main>
