@@ -1,13 +1,9 @@
 import { useState } from "react";
-// import Book from "./Book";
-// import BookshelfDataBookAuthor from "./BookshelfDataBookAuthor";
-// import BookshelfDataBookTitle from "./BookshelfDataBookTitle";
+import BookshelfData from "../../data/BookshelfData.js";
 
 const Bookshelf = () => {
-  const [books, setBooks] = useState([
-    { title: "Fourth Wing", author: "Rebecca Yarros" },
-    { title: "The Lion, the Witch and the Wardrobe", author: "C.S. Lewis" },
-  ]);
+  const [books, setBooks] = useState(BookshelfData);
+  const [newBook, setNewBook] = useState({ title: "", author: "" });
 
   const handleFormInputChange = (e) => {
     return setBooks({ ...books, [e.target.name]: e.target.value });
