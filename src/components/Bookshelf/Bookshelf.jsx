@@ -5,8 +5,8 @@ const Bookshelf = () => {
   const [books, setBooks] = useState(BookshelfData);
   const [newBook, setNewBook] = useState({ title: "", author: "" });
 
-  const handleFormInputChange = (e) => {
-    return setBooks({ ...books, [e.target.name]: e.target.value });
+  const handleInputChange = (e) => {
+    return setNewBook({ ...newBook, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
@@ -21,21 +21,24 @@ const Bookshelf = () => {
         <section className="formDiv">
           <h2>Add a Book</h2>
           <form>
-            <label htmlFor="bookTitle">Title: </label>
+            <label htmlFor="title">Title: </label>
             <input
-              id="bookTitle"
-              name="bookTitle"
+              id="title"
+              name="title"
               type="text"
-              value={books.title}
-              onChange={handleFormInputChange}
+              value={newBook.title}
+              autoFocus
+              required
+              onChange={handleInputChange}
             />
-            <label htmlFor="bookAuthor">Author: </label>
+            <label htmlFor="author">Author: </label>
             <input
-              id="bookAuthor"
-              name="bookAuthor"
+              id="author"
+              name="author"
               type="text"
-              value={books.author}
-              onChange={handleFormInputChange}
+              value={newBook.author}
+              required
+              onChange={handleInputChange}
             />
             <button type="submit">Add book</button>
           </form>
