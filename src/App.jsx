@@ -1,11 +1,8 @@
+import "./App.css";
 import Bookshelf from "./components/Bookshelf/Bookshelf.jsx";
 
 const App = () => {
-  return (
-    <main>
-      <Bookshelf />
-    </main>
-  );
+  return <Bookshelf />;
 };
 
 export default App;

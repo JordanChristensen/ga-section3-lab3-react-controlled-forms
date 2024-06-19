@@ -19,7 +19,7 @@ const Bookshelf = () => {
   };
 
   return (
-    <section>
+    <main>
       <h1>My bookshelf</h1>
       <section className="bookshelfDiv">
         <section className="formDiv">
@@ -50,7 +50,7 @@ const Bookshelf = () => {
           {/* <Book title={books.title} /> */}
         </section>
       </section>
-    </section>
+    </main>
   );
 };
 
