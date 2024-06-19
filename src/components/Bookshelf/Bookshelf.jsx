@@ -1,5 +1,6 @@
 import { useState } from "react";
 import BookshelfData from "../../data/BookshelfData.js";
+import AddBookForm from "./AddBookForm.jsx";
 
 const Bookshelf = () => {
   const [books, setBooks] = useState(BookshelfData);
@@ -22,31 +23,11 @@ const Bookshelf = () => {
       <h1>My bookshelf</h1>
       <section className="bookshelfDiv">
         <section className="formDiv">
-          <h2>Add a Book</h2>
-          <form>
-            <label htmlFor="title">Title: </label>
-            <input
-              id="title"
-              name="title"
-              type="text"
-              value={newBook.title}
-              autoFocus
-              required
-              onChange={handleInputChange}
-            />
-            <label htmlFor="author">Author: </label>
-            <input
-              id="author"
-              name="author"
-              type="text"
-              value={newBook.author}
-              required
-              onChange={handleInputChange}
-            />
-            <button onClick={(newBook) => handleSubmit(newBook)}>
-              Add book
-            </button>
-          </form>
+          <AddBookForm
+            newBook={newBook}
+            handleInputChange={handleInputChange}
+            handleSubmit={handleSubmit}
+          />
         </section>
         <section className="bookCardsDiv" onSubmit={handleSubmit}>
           {books.map((book, index) => {
