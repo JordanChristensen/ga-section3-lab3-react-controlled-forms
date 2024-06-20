@@ -6,30 +6,19 @@ const Bookshelf = () => {
   const [books, setBooks] = useState(BookshelfData);
   const [newBook, setNewBook] = useState({ title: "", author: "" });
 
-  const handleInputChange = (e) => {
-    return setNewBook({ ...newBook, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (newBook.title && newBook.author) {
-      setBooks([...books, newBook]);
-      setNewBook({ title: "", author: "" });
-    }
-  };
-
   return (
     <main>
       <h1>My bookshelf</h1>
       <section className="bookshelfDiv">
         <section className="formDiv">
           <AddBookForm
+            books={books}
             newBook={newBook}
-            handleInputChange={handleInputChange}
-            handleSubmit={handleSubmit}
+            setBooks={setBooks}
+            setNewBook={setNewBook}
           />
         </section>
-        <section className="bookCardsDiv" onSubmit={handleSubmit}>
+        <section className="bookCardsDiv">
           {books.map((book, index) => {
             return (
               <section key={index} className="card">

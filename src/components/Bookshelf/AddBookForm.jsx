@@ -1,6 +1,18 @@
-const AddBookForm = ({ newBook, handleInputChange, handleSubmit }) => {
+const AddBookForm = ({ books, newBook, setBooks, setNewBook }) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (newBook.title && newBook.author) {
+      setBooks([...books, newBook]);
+      setNewBook({ title: "", author: "" });
+    }
+  };
+
+  const handleInputChange = (e) => {
+    return setNewBook({ ...newBook, [e.target.name]: e.target.value });
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <header>
         <h2>Add a Book</h2>
       </header>
