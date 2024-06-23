@@ -13,9 +13,8 @@ export default function Bookshelf() {
           <AddBookForm books={books} setBooks={setBooks} />
         </section>
         <section className="bookCardsDiv">
-          {books.map((book, index) => {
-            return <BookCard key={index} book={book} />;
-          })}
+          {books.length > 0 &&
+            books.map((book, index) => <BookCard key={index} book={book} />)}
         </section>
       </section>
     </main>
