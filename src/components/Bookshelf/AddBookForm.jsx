@@ -1,14 +1,18 @@
-const AddBookForm = ({ books, newBook, setBooks, setNewBook }) => {
+import { useState } from "react";
+
+export default function AddBookForm({ books, setBooks }) {
+  const [formData, setFormData] = useState({ title: "", author: "" });
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (newBook.title && newBook.author) {
-      setBooks([...books, newBook]);
-      setNewBook({ title: "", author: "" });
+    if (formData.title && formData.author) {
+      setBooks([...books, formData]);
+      setFormData({ title: "", author: "" });
     }
   };
 
   const handleInputChange = (e) => {
-    return setNewBook({ ...newBook, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   return (
@@ -21,7 +25,7 @@ const AddBookForm = ({ books, newBook, setBooks, setNewBook }) => {
         id="title"
         name="title"
         type="text"
-        value={newBook.title}
+        value={formData.title}
         autoFocus
         required
         onChange={handleInputChange}
@@ -31,13 +35,11 @@ const AddBookForm = ({ books, newBook, setBooks, setNewBook }) => {
         id="author"
         name="author"
         type="text"
-        value={newBook.author}
+        value={formData.author}
         required
         onChange={handleInputChange}
       />
-      <button onClick={(newBook) => handleSubmit(newBook)}>Add book</button>
+      <button type="submit">Add book</button>
     </form>
   );
-};
-
-export default AddBookForm;
+}
