@@ -1,8 +1,6 @@
 import "./App.css";
 import Bookshelf from "./components/Bookshelf/Bookshelf.jsx";
 
-const App = () => {
+export default function App() {
   return <Bookshelf />;
-};
-
-export default App;
+}

@@ -3,17 +3,17 @@ import { useState } from "react";
 export default function AddBookForm({ books, setBooks }) {
   const [formData, setFormData] = useState({ title: "", author: "" });
 
-  const handleSubmit = (e) => {
+  function handleSubmit(e) {
     e.preventDefault();
     if (formData.title && formData.author) {
       setBooks([...books, formData]);
       setFormData({ title: "", author: "" });
     }
-  };
+  }
 
-  const handleInputChange = (e) => {
+  function handleInputChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  }
 
   return (
     <form onSubmit={handleSubmit}>

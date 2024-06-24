@@ -1,5 +1,5 @@
 import { useState } from "react";
-import BookshelfData from "../../data/BookshelfData.js";
+import BookshelfData from "../data/BookshelfData.js";
 import AddBookForm from "./AddBookForm.jsx";
 import BookCard from "./BookCard.jsx";
 
